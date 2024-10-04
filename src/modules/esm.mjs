@@ -8,12 +8,12 @@ const random = Math.random();
 let unknownObject;
 
 if (random > 0.5) {
-  import("./files/a.json", { with: { type: "json" } }).then(
-    (file) => (unknownObject = file)
+  await import("./files/a.json", { with: { type: "json" } }).then(
+    (file) => (unknownObject = file.default)
   );
 } else {
-  import("./files/b.json", { with: { type: "json" } }).then(
-    (file) => (unknownObject = file)
+  await import("./files/b.json", { with: { type: "json" } }).then(
+    (file) => (unknownObject = file.default)
   );
 }
 
