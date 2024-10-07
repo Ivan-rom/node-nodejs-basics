@@ -2,8 +2,10 @@ import { Worker } from "worker_threads";
 import { cpus } from "os";
 
 const performCalculations = async () => {
+  const __dirname = import.meta.dirname;
+
   const CPUNumber = cpus().length;
-  const filePath = "./src/wt/worker.js";
+  const filePath = `${__dirname}/worker.js`;
   const initialNumber = 10;
   const threads = new Array(CPUNumber);
 

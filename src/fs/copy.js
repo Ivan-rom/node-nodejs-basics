@@ -1,9 +1,9 @@
 import { cp, access, constants } from "node:fs";
 
 const copy = async () => {
-  const folderPath = "./src/fs";
-  const source = `${folderPath}/files/`;
-  const dist = `${folderPath}/files_copy/`;
+  const __dirname = import.meta.dirname;
+  const source = `${__dirname}/files/`;
+  const dist = `${__dirname}/files_copy/`;
 
   await access(dist, constants.F_OK, async (err) => {
     if (!err) {

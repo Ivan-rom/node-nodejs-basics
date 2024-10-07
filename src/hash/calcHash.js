@@ -3,10 +3,11 @@ import { createHash } from "node:crypto";
 import { EOL } from "os";
 
 const calculateHash = async () => {
+  const __dirname = import.meta.dirname;
   const hash = createHash("sha256");
 
   const stream = createReadStream(
-    "./src/hash/files/fileToCalculateHashFor.txt"
+    `${__dirname}/files/fileToCalculateHashFor.txt`
   );
 
   stream

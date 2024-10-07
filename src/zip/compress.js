@@ -2,8 +2,10 @@ import fs from "node:fs";
 import { createGzip } from "node:zlib";
 
 const compress = async () => {
-  const sourceFile = "./src/zip/files/fileToCompress.txt";
-  const distPath = "./src/zip/files/archive.gz";
+  const __dirname = import.meta.dirname;
+
+  const sourceFile = `${__dirname}/files/fileToCompress.txt`;
+  const distPath = `${__dirname}/files/archive.gz`;
 
   const gzip = createGzip();
   const readStream = fs.createReadStream(sourceFile);

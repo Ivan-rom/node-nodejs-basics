@@ -1,7 +1,8 @@
 import { spawn } from "node:child_process";
 
 const spawnChildProcess = async (args) => {
-  const filePath = "./src/cp/files/script.js";
+  const __dirname = import.meta.dirname;
+  const filePath = `${__dirname}/files/script.js`;
 
   const childProcess = spawn("node", [filePath, ...args]);
 

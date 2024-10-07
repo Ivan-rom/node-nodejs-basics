@@ -1,8 +1,8 @@
 import { writeFile, access, constants } from "node:fs";
 
 const create = async () => {
-  const folderPath = "./src/fs";
-  const fileDist = `${folderPath}/files/fresh.txt`;
+  const __dirname = import.meta.dirname;
+  const fileDist = `${__dirname}/files/fresh.txt`;
   const fileContent = "I am fresh and young";
 
   access(fileDist, constants.F_OK, (err) => {

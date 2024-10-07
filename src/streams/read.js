@@ -2,10 +2,9 @@ import { createReadStream } from "node:fs";
 import { EOL } from "os";
 
 const read = async () => {
-  const stream = createReadStream(
-    "./src/streams/files/fileToRead.txt",
-    "utf-8"
-  );
+  const __dirname = import.meta.dirname;
+
+  const stream = createReadStream(`${__dirname}/files/fileToRead.txt`, "utf-8");
 
   stream.on("readable", () => {
     const data = stream.read();

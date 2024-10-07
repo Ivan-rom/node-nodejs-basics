@@ -1,9 +1,9 @@
 import fs from "node:fs";
 
 const rename = async () => {
-  const path = "./src/fs/files";
-  const source = `${path}/wrongFilename.txt`;
-  const dist = `${path}/properFilename.md`;
+  const __dirname = import.meta.dirname;
+  const source = `${__dirname}/files/wrongFilename.txt`;
+  const dist = `${__dirname}/files/properFilename.md`;
 
   fs.access(source, fs.constants.F_OK, (err) => {
     if (err) {

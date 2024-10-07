@@ -1,7 +1,8 @@
 import fs from "node:fs";
 
 const list = async () => {
-  const path = "./src/fs/files";
+  const __dirname = import.meta.dirname;
+  const path = `${__dirname}/files`;
 
   await fs.access(path, fs.constants.F_OK, (err) => {
     if (err) throw new Error("FS operation failed");

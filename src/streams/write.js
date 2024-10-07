@@ -2,7 +2,9 @@ import fs from "node:fs";
 import { EOL } from "os";
 
 const write = async () => {
-  const path = "./src/streams/files/fileToWrite.txt";
+  const __dirname = import.meta.dirname;
+
+  const path = `${__dirname}/files/fileToWrite.txt`;
   const stream = fs.createWriteStream(path);
 
   process.stdout.write("Type something to save it in fileToWrite.txt" + EOL);
