@@ -5,6 +5,10 @@ const copy = async () => {
   const source = `${__dirname}/files/`;
   const dist = `${__dirname}/files_copy/`;
 
+  await access(source, constants.F_OK, (err) => {
+    if (err) throw new Error("FS operation failed");
+  });
+
   await access(dist, constants.F_OK, async (err) => {
     if (!err) {
       throw new Error("FS operation failed");
